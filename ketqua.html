@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kết quả kiểm tra SimSpace 86</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#eef1f6;--surface:#fff;--surface2:#f4f6fb;--fg:#15223b;--muted:#5b6b86;--border:#d6deeb;
+  --accent:#2457d6;--accent-fg:#fff;--good:#12805c;--good-bg:#e4f5ee;--bad:#c0392b;--bad-bg:#fbe9e7;
+  --ring:rgba(36,87,214,.35);--shadow:0 1px 2px rgba(20,34,59,.06),0 8px 24px rgba(20,34,59,.08);
+  --font:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c1220;--surface:#141c2e;--surface2:#1b2336;--fg:#e7ecf6;--muted:#9fb0cc;--border:#283349;
+  --accent:#5b8cff;--accent-fg:#0c1220;--good:#4fd1a1;--good-bg:#12271f;--bad:#ff7a6b;--bad-bg:#2a1512;
+  --ring:rgba(91,140,255,.4);--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.45);color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0c1220;--surface:#141c2e;--surface2:#1b2336;--fg:#e7ecf6;--muted:#9fb0cc;--border:#283349;
+  --accent:#5b8cff;--accent-fg:#0c1220;--good:#4fd1a1;--good-bg:#12271f;--bad:#ff7a6b;--bad-bg:#2a1512;
+  --ring:rgba(91,140,255,.4);--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.45);color-scheme:dark;}
+*{box-sizing:border-box} html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.5;
+  padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.wrap{max-width:1040px;margin:0 auto;padding-block:26px;padding-inline:18px}
+h1{margin:0 0 4px;font-size:22px} .lead{color:var(--muted);margin:0 0 18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:20px}
+label{display:block;font-weight:600;font-size:14px;margin:0 0 6px}
+input{width:100%;font:inherit;color:var(--fg);background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;outline:none}
+input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--ring)}
+.btn{appearance:none;cursor:pointer;font:inherit;font-weight:700;border-radius:10px;padding:11px 18px;border:1px solid transparent;background:var(--accent);color:var(--accent-fg)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--border)}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+.stat .n{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums} .stat .l{color:var(--muted);font-size:13px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:4px 0 12px}
+.toolbar input[type=search]{max-width:260px}
+.tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:14px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+th{cursor:pointer;color:var(--muted);font-size:13px;position:sticky;top:0;background:var(--surface);user-select:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+.pct{font-weight:700} .pct.ok{color:var(--good)} .pct.mid{color:#b8860b} .pct.low{color:var(--bad)}
+.err{color:var(--bad);margin-top:10px;font-weight:600} .muted{color:var(--muted)}
+.toggle{position:fixed;top:calc(env(safe-area-inset-top,0) + 12px);right:14px;z-index:10;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:7px 10px;cursor:pointer;font-size:13px;color:var(--fg)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<button class="toggle" id="themeBtn" type="button">Nền</button>
+<div class="wrap">
+  <h1>Kết quả kiểm tra thực hành</h1>
+  <p class="lead">SimSpace 86 . Dành cho giảng viên</p>
+
+  <section id="auth" class="card" style="max-width:460px">
+    <label for="key">Mã truy cập</label>
+    <input id="key" type="password" placeholder="Nhập mã truy cập giảng viên" autocomplete="off">
+    <div class="row" style="margin-top:14px">
+      <button class="btn" id="loadBtn" type="button">Xem kết quả</button>
+      <label class="muted" style="font-weight:500;font-size:13px;display:flex;gap:6px;align-items:center;margin:0">
+        <input type="checkbox" id="remember" style="width:auto"> Ghi nhớ trên máy này
+      </label>
+    </div>
+    <div class="err" id="authErr" hidden></div>
+  </section>
+
+  <section id="dash" hidden>
+    <div class="stats" id="stats"></div>
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Tìm theo tên hoặc đơn vị...">
+      <span class="muted" id="shown"></span>
+      <div style="flex:1"></div>
+      <button class="btn ghost" id="refreshBtn" type="button">Tải lại</button>
+      <button class="btn" id="csvBtn" type="button">Tải CSV</button>
+    </div>
+    <div class="tablewrap"><table id="tbl"><thead></thead><tbody></tbody></table></div>
+    <p class="muted" style="font-size:13px;margin-top:12px">Bấm vào tiêu đề cột để sắp xếp. Mỗi lần học viên nộp bài tạo một dòng kết quả.</p>
+  </section>
+</div>
+<script>
+const API="https://sim86-quiz-api.ngocanhnckh.workers.dev";
+const $=s=>document.querySelector(s);
+(function(){try{const t=localStorage.getItem("sim86theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}
+ $("#themeBtn").onclick=()=>{const c=document.documentElement.getAttribute("data-theme");
+  const dark=c?c==="dark":matchMedia("(prefers-color-scheme:dark)").matches;const n=dark?"light":"dark";
+  document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("sim86theme",n);}catch(e){}};})();
+
+let KEY="", rows=[], sortKey="submittedAt", sortDir=-1;
+try{const sk=localStorage.getItem("sim86key"); if(sk){$("#key").value=sk;$("#remember").checked=true;}}catch(e){}
+
+function fmtDur(ms){ms=ms||0;const s=Math.round(ms/1000);const m=Math.floor(s/60);return m+"p "+(s%60)+"s";}
+function fmtTime(iso){try{const d=new Date(iso);return d.toLocaleString("vi-VN",{hour:"2-digit",minute:"2-digit",day:"2-digit",month:"2-digit"});}catch(e){return iso;}}
+function pctClass(p){return p>=80?"ok":p>=50?"mid":"low";}
+function esc(s){return String(s==null?"":s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+
+async function load(){
+  KEY=$("#key").value.trim(); if(!KEY)return;
+  $("#authErr").hidden=true; $("#loadBtn").textContent="Đang tải...";
+  try{
+    const r=await fetch(API+"/results?key="+encodeURIComponent(KEY));
+    if(r.status===401){throw new Error("Mã truy cập không đúng.");}
+    if(!r.ok)throw new Error("Lỗi máy chủ ("+r.status+").");
+    const d=await r.json(); rows=d.results||[];
+    try{ if($("#remember").checked)localStorage.setItem("sim86key",KEY); else localStorage.removeItem("sim86key"); }catch(e){}
+    $("#auth").hidden=true; $("#dash").hidden=false; renderStats(); renderTable();
+  }catch(e){ $("#authErr").textContent=e.message||"Không tải được."; $("#authErr").hidden=false; }
+  finally{ $("#loadBtn").textContent="Xem kết quả"; }
+}
+function renderStats(){
+  const n=rows.length;
+  const avg=n?Math.round(rows.reduce((a,b)=>a+(b.percent||0),0)/n):0;
+  const students=new Set(rows.map(r=>(r.name+"|"+r.unit).toLowerCase())).size;
+  const pass=rows.filter(r=>r.percent>=80).length;
+  $("#stats").innerHTML=
+    tile(n,"Lượt nộp bài")+tile(students,"Học viên")+tile(avg+"%","Điểm trung bình")+tile(pass,"Đạt từ 80%");
+}
+function tile(n,l){return '<div class="stat"><div class="n">'+n+'</div><div class="l">'+l+'</div></div>';}
+const COLS=[["submittedAt","Thời gian"],["name","Họ tên"],["unit","Đơn vị / Mã"],["lessonTopic","Chuyên đề"],["score","Điểm"],["percent","%"],["durationMs","Thời lượng"]];
+function renderTable(){
+  const q=($("#search").value||"").toLowerCase().trim();
+  let data=rows.filter(r=>!q||((r.name||"")+" "+(r.unit||"")).toLowerCase().includes(q));
+  data.sort((a,b)=>{let x=a[sortKey],y=b[sortKey];if(typeof x==="string"){x=(x||"").toLowerCase();y=(y||"").toLowerCase();}return (x<y?-1:x>y?1:0)*sortDir;});
+  const thead=$("#tbl thead"), tbody=$("#tbl tbody");
+  thead.innerHTML="<tr>"+COLS.map(c=>{const num=(c[0]==="score"||c[0]==="percent"||c[0]==="durationMs")?" num":"";
+    const arrow=sortKey===c[0]?(sortDir<0?" ↓":" ↑"):"";return '<th class="'+num.trim()+'" data-k="'+c[0]+'">'+c[1]+arrow+'</th>';}).join("")+"</tr>";
+  thead.querySelectorAll("th").forEach(th=>th.onclick=()=>{const k=th.dataset.k;if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=(k==="name"||k==="unit")?1:-1;}renderTable();});
+  tbody.innerHTML=data.map(r=>{
+    const lesson=esc(r.lesson||r.lessonTopic||"");
+    return "<tr>"+
+      "<td>"+fmtTime(r.submittedAt)+"</td>"+
+      "<td>"+esc(r.name)+"</td>"+
+      "<td>"+esc(r.unit)+"</td>"+
+      '<td title="'+lesson+'">'+esc(r.lessonTopic||"")+"</td>"+
+      '<td class="num">'+r.score+"/"+r.total+"</td>"+
+      '<td class="num pct '+pctClass(r.percent)+'">'+r.percent+"%</td>"+
+      '<td class="num">'+fmtDur(r.durationMs)+"</td>"+
+    "</tr>";}).join("");
+  $("#shown").textContent=data.length+" / "+rows.length+" dòng";
+}
+$("#loadBtn").onclick=load;
+$("#key").addEventListener("keydown",e=>{if(e.key==="Enter")load();});
+$("#search").addEventListener("input",renderTable);
+$("#refreshBtn").onclick=load;
+$("#csvBtn").onclick=()=>{ window.open(API+"/results?format=csv&key="+encodeURIComponent(KEY),"_blank"); };
+</script>
+</body>
+</html>
